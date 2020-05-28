@@ -11,23 +11,18 @@ export default class TableRow extends Component
         return (
             <React.Fragment>
                 <th scope="row">{this.props.counter}</th>
-                <td>{name}</td>
-                <td>{category}</td>
-                {/* <td>{dateIssue}</td>
-                <td>{shelfLife}</td> */}
-                <td>{purchasePrice}</td>
-                <td>{finalPrice}</td>
-                <td>{count}</td>
+                    <td>{name}</td>
+                    <td>{category}</td>
+                    <td>{purchasePrice}</td>
+                    <td>{finalPrice}</td>
+                    <td>{count}</td>
                 <td>
-                <button className="btn btn-sm btn-outline-success my-2 my-sm-0" ><i className="fas fa-edit"
-                // onClick={() => this.props.onEdited()}
-                onClick={this.props.onEdited}
-                ></i></button>
-                </td>
-                <td>
-                <button type="button" className="btn btn-sm btn-outline-danger"
-                onClick={this.props.onDeleted}
-                ><i className="far fa-trash-alt"></i></button>
+                    <button className="btn btn-sm btn-outline-primary my-2 my-sm-0 mr-5" ><i className="fas fa-edit"
+                    onClick={this.props.onEdited}
+                    ></i></button>
+                    <button type="button" className="btn btn-sm btn-outline-danger"
+                    onClick={this.props.onDeleted}
+                    ><i className="far fa-trash-alt"></i></button>
                 </td>
             </React.Fragment>
         )

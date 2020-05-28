@@ -36,15 +36,16 @@ export default class ItemTablePage extends Component
         return(
             <div className="container mt-5">
                 <h2>Каталог реализуемой продукции</h2>
-                <table className="table table-secondary table-hover mt-5">
+                <table className="table table-sm table-dark table-hover mt-2">
                     <thead>
-                        <tr>
+                        <tr class="bg-primary">
                             <th scope="col">#</th>
                             <th scope="col">Наименование товара</th>
                             <th scope="col">Категория</th>
                             <th scope="col">Закупочная цена</th>
                             <th scope="col">Реализуемая цена</th>
                             <th scope="col">Количество</th>
+                            <th scope="col">Редактировать</th>
                         </tr>
                     </thead>
                     <tbody>

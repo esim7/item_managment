@@ -125,7 +125,7 @@ export default class App extends Component
                         </Switch>
                     </div>
                     <ModalPage isModalOpen={this.state.isModalOpen} editableItem={this.state.editableItem} onSaveEditedProduct={this.onSaveEditedProduct} exitDialog={this.exitDialog}/>
-                    <SendItemModalPage isSendItemModalPageOpen={this.state.isModalSendItemOpen} sellingItem={this.state.sellingItem} itemexitSendItemModalPageDialog={this.exitDialog}/>
+                    <SendItemModalPage isSendItemModalPageOpen={this.state.isModalSendItemOpen} sellingItem={this.state.sellingItem} exitSendItemModalPageDialog={this.exitDialog}/>
                 </Router>
             </AppContext.Provider>
         )

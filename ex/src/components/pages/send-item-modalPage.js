@@ -10,24 +10,27 @@ import './send-item-modalPage.css';
 export default class SendItemModalPage extends Component
 {
     state = {
-            
+
     }
     render()
     {
+        const {id, count} = this.props.sellingItem;
         return (
             <Dialog
                 title="Dialog With Actions"
                 open={this.props.isSendItemModalPageOpen}
                 >
-                <DialogTitle id="form-dialog-title">Продажа товара</DialogTitle><DialogContent>
-                <h6>Товара в наличии: </h6>
-                <TextField
-                    id="outlined-secondary"
-                    label="Введите количество"
-                    variant="outlined"
-                    color="secondary"
-                />
-                
+                <DialogTitle id="form-dialog-title">Продажа товара</DialogTitle>
+                <DialogContent>
+                    <h6>Товара в наличии: {count}</h6>
+                    <TextField
+                        id="outlined-secondary"
+                        label="Введите количество"
+                        variant="outlined"
+                        color="secondary"
+                        type="number"
+                    />
+                    
                 </DialogContent>
                 <DialogActions>
 

@@ -30,7 +30,7 @@ export default class AddProductPage extends Component
                 <div className="form-row mt-5">
                     <div className="form-group col-md-6">
                         <label>Наименование товара</label>
-                        <input type="text" className="form-control" id="item-name" value={this.state.productName}
+                        <input type="text" className="form-control bg-primary text-white" id="item-name" value={this.state.productName}
                         onChange = { (event) => {
                             this.setState({productName: event.target.value
                             });
@@ -39,7 +39,7 @@ export default class AddProductPage extends Component
                     </div>
                     <div className="form-group col-md-6">
                         <label>Категория</label>
-                        <input type="text" className="form-control" id="item-category" value={this.state.category}
+                        <input type="text" className="form-control bg-primary text-white" id="item-category" value={this.state.category}
                         onChange = { (event) => {
                             this.setState({category: event.target.value
                             });
@@ -48,31 +48,10 @@ export default class AddProductPage extends Component
                     </div>
                 </div>
 
-                {/* <div className="form-row">
-                    <div className="form-group col-md-6">
-                        <label>Дата выпуска</label>
-                        <input type="date" className="form-control" id="item-issue" value={this.state.issue}
-                        onChange = { (event) => {
-                            this.setState({issue: event.target.value
-                            });
-                        }}
-                        />
-                    </div>
-                    <div className="form-group col-md-6">
-                        <label>Дата срока годности</label>
-                        <input type="date" className="form-control" id="item-shelf-life" value={this.state.shelfLife}
-                        onChange = { (event) => {
-                            this.setState({shelfLife: event.target.value
-                            });
-                        }}
-                        />
-                    </div>
-                </div> */}
-
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label>Закупочная цена</label>
-                        <input type="number" className="form-control" id="item-purchase-price" value={this.state.purchasePrice}
+                        <input type="number" className="form-control bg-primary text-white" id="item-purchase-price" value={this.state.purchasePrice}
                         onChange = { (event) => {
                             this.setState({purchasePrice: event.target.value
                             });
@@ -81,7 +60,7 @@ export default class AddProductPage extends Component
                     </div>
                     <div className="form-group col-md-6">
                         <label>Итоговая цена</label>
-                        <input type="number" className="form-control" id="item-final-price" value={this.state.finalPrice}
+                        <input type="number" className="form-control bg-primary text-white" id="item-final-price" value={this.state.finalPrice}
                         onChange = { (event) => {
                             this.setState({finalPrice: event.target.value
                             });
@@ -91,7 +70,7 @@ export default class AddProductPage extends Component
                 </div>
                 <div className="form-row mb-5">
                     <label>Количество</label>
-                    <input type="number" className="form-control" id="item-count" value={this.state.count}
+                    <input type="number" className="form-control bg-primary text-white" id="item-count" value={this.state.count}
                     onChange = { (event) => {
                             this.setState({count: event.target.value
                             });
