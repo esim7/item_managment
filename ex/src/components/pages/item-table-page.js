@@ -42,8 +42,6 @@ export default class ItemTablePage extends Component
                             <th scope="col">#</th>
                             <th scope="col">Наименование товара</th>
                             <th scope="col">Категория</th>
-                            {/* <th scope="col">Дата изготовления</th>
-                            <th scope="col">Годен до</th> */}
                             <th scope="col">Закупочная цена</th>
                             <th scope="col">Реализуемая цена</th>
                             <th scope="col">Количество</th>

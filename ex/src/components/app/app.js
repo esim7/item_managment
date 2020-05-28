@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
+import {AppContext} from '../../context'
+
 import './app.css';
 
 import LoginPage from '../login-page';
@@ -8,6 +10,7 @@ import NavBar from '../navbar';
 import {ItemTablePage, AddProductPage} from '../pages';
 import ModalPage from '../pages/modal-page';
 import MainPage from '../pages/main_page';
+import SendItemModalPage from '../pages/send-item-modalPage';
 
 export default class App extends Component
 {
@@ -17,7 +20,9 @@ export default class App extends Component
         itemData: [],
         forecast: {},
         isModalOpen: false,
+        isModalSendItemOpen: false,
         editableItem: {},
+        sellingItem: {},
     }
 
     onDeleted = (id) => {
@@ -44,10 +49,9 @@ export default class App extends Component
     };
 
     exitDialog = () => {
-        this.setState({isModalOpen: false})
+        this.setState({isModalOpen: false, isModalSendItemOpen: false})
     };
     
-
     onProductAdded = (item) => {
         this.setState(({ itemData }) => {
         const newData = [
@@ -59,6 +63,17 @@ export default class App extends Component
         };
     });
   };
+
+    onSellItem = (id) => {
+        this.setState(({sellingItem, isModalSendItemOpen}) => {
+            var itemToSell = this.state.itemData.find((el) => el.id === id);
+            return {
+                sellingItem: itemToSell,
+                isModalSendItemOpen: true
+            };
+        });
+        console.log(id);
+    }
 
     onSaveEditedProduct = (obj) => {
         this.setState(({ itemData, isModalOpen }) => {
@@ -90,27 +105,29 @@ export default class App extends Component
         if(!this.state.isLogged) return <LoginPage/>
         console.log(this.state.itemData);
         return(
-            <Router>
-                <div>
-                    <NavBar/>
-                    <Switch>
-                        <Route path="/mainPage" render={() => {
-                        return <MainPage itemData={this.state.itemData}/>
-                        }} />
-                        <Route path="/addProduct" render={() => {
-                        return <AddProductPage onProductAdded={this.onProductAdded}/>
-                        }} />
-                        <Route path="/itemTable" render={() => {
-                        return <ItemTablePage data={this.state.itemData} 
-                                            onDeleted={this.onDeleted}
-                                            onEdited={this.onEdited}                  
-                        />
-                        }} />
-                    </Switch>
-                </div>
-                <ModalPage isModalOpen={this.state.isModalOpen} editableItem={this.state.editableItem} onSaveEditedProduct={this.onSaveEditedProduct} exitDialog={this.exitDialog}/>
-            </Router>
-            
+            <AppContext.Provider value={this.onSellItem}>
+                <Router>
+                    <div>
+                        <NavBar/>
+                        <Switch>
+                            <Route path="/mainPage" render={() => {
+                            return <MainPage itemData={this.state.itemData}/>
+                            }} />
+                            <Route path="/addProduct" render={() => {
+                            return <AddProductPage onProductAdded={this.onProductAdded}/>
+                            }} />
+                            <Route path="/itemTable" render={() => {
+                            return <ItemTablePage data={this.state.itemData} 
+                                                onDeleted={this.onDeleted}
+                                                onEdited={this.onEdited}                  
+                            />
+                            }} />
+                        </Switch>
+                    </div>
+                    <ModalPage isModalOpen={this.state.isModalOpen} editableItem={this.state.editableItem} onSaveEditedProduct={this.onSaveEditedProduct} exitDialog={this.exitDialog}/>
+                    <SendItemModalPage isSendItemModalPageOpen={this.state.isModalSendItemOpen} sellingItem={this.state.sellingItem} itemexitSendItemModalPageDialog={this.exitDialog}/>
+                </Router>
+            </AppContext.Provider>
         )
     }
 }
