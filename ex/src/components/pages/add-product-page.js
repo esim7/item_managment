@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-
 import './add-product-page.css';
 import Product from '../../classes/product';
 
@@ -7,9 +6,7 @@ export default class AddProductPage extends Component
 {
     state = {
         productName: '',
-        category: '', 
-        // issue: '',
-        // shelfLife: '', 
+        category: '',  
         purchasePrice: '',
         finalPrice: '', 
         count: '',
@@ -19,7 +16,6 @@ export default class AddProductPage extends Component
         this.setState({
             city: event.target.value          
           });
-       
       }
 
     render()
@@ -47,7 +43,6 @@ export default class AddProductPage extends Component
                         />
                     </div>
                 </div>
-
                 <div className="form-row">
                     <div className="form-group col-md-6">
                         <label>Закупочная цена</label>
@@ -79,11 +74,12 @@ export default class AddProductPage extends Component
                 </div>
                 <button type="button" className="btn btn-outline-primary"
                 onClick={(e) => {this.props.onProductAdded(new Product(this.state.productName, this.state.category,
-                                                                        // this.state.issue, this.state.shelfLife,
                                                                         this.state.purchasePrice, this.state.finalPrice,
-                                                                        this.state.count))
-                                                                        }}
-                
+                                                                        this.state.count));
+
+                                                                        this.setState({productName: '', category: '', purchasePrice: '',
+                                                                        finalPrice: '', count: '' 
+                                                                         })}}
                 >Добавить</button>
             </div>
         )

@@ -53,10 +53,10 @@ export default class ChartPage extends Component
                     data={this.state.chartData}
                     height={500}
                     options={{
-                        maintainAspectRatio:false
+                        maintainAspectRatio:false,
+                        
                     }}
                 >
-
                 </Bar>
             </div>
         )

@@ -1,20 +1,9 @@
 import React, {Component} from 'react';
-
 import './item-table-page.css';
 import TableRow from '../table-row/table-row';
 
-
-
 export default class ItemTablePage extends Component
 {
-    onEdited = () => {
-        console.log('edited');
-    }
-    
-    onDeleted = () => {
-        console.log('deleted');
-    }
-
     render()
     {
         var {data} = this.props;
@@ -38,9 +27,9 @@ export default class ItemTablePage extends Component
 
         })
         return(
-            
             <div className="container mt-5">
                 <h2>Каталог реализуемой продукции</h2>
+                <div class="table-responsive pre-scrollable">
                 <table className="table table-sm table-dark table-hover mt-2">
                     <thead>
                         <tr class="bg-primary">
@@ -57,6 +46,7 @@ export default class ItemTablePage extends Component
                         {elements}
                     </tbody>
                 </table>
+                </div>
             </div>
         )
     }

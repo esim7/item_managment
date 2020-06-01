@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import TextField from '@material-ui/core/TextField';
 import SearchPanel from '../search-panel/search-panel';
 import './main-page.css';
 import CardList from '../card-list/card-list';

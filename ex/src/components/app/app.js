@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-
 import {AppContext} from '../../context'
-
 import './app.css';
-
 import LoginPage from '../login-page';
 import NavBar from '../navbar';
 import {ItemTablePage, AddProductPage, ChartPage} from '../pages';

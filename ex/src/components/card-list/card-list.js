@@ -13,7 +13,7 @@ export default class CardList extends Component
             );
           });
         return (
-            <div className="row justify-content-center mt-4">
+            <div className="row justify-content-center mt-4 pre-scrollable">
                 {elements}
             </div>
         )

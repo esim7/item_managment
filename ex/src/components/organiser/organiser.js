@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import {AppContext} from '../../context'
 import './organiser.css';
 
@@ -16,8 +15,6 @@ export default class Organiser extends Component
                     <div class="col d-flex align-items-center">
                         <h4>{weatherToday.temp}<sup><i className="grade fas fa-genderless"></i></sup> </h4>
                     </div>
-                   
-                    
                     <div class="col-4">
                         <p>Ветер: {weatherToday.speed}м/с</p>
                         <p>Влажность: {weatherToday.humidity}%</p>

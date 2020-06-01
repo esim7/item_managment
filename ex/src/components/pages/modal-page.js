@@ -6,7 +6,6 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import './modal-page.css';
-import Product from '../../classes/product';
 
 export default class ModalPage extends Component
 {

@@ -9,9 +9,6 @@ import './send-item-modalPage.css';
 
 export default class SendItemModalPage extends Component
 {
-    state = {
-
-    }
     render()
     {
         const {id, count} = this.props.sellingItem;
@@ -29,20 +26,15 @@ export default class SendItemModalPage extends Component
                         variant="outlined"
                         color="secondary"
                         type="number"
-                    />
-                    
+                    />                 
                 </DialogContent>
                 <DialogActions>
-
                     <Button  color="primary">
                         Принять
                     </Button>
                     <Button onClick={() => this.props.exitSendItemModalPageDialog()} color="secondary">
                         Отмена
                     </Button>
-
-                    
-                    
                 </DialogActions>
             </Dialog>
         )
