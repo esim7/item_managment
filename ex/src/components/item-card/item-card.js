@@ -10,7 +10,7 @@ export default class ItemCard extends Component
     render()
     {
         const {id, name, category, finalPrice} = this.props;    
-        const onSellItem = this.context;
+        const {onSellItem} = this.context;
         console.log(this.context);
             return(
                 <div className="main col-sm-3">

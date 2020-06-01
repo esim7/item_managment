@@ -11,11 +11,13 @@ import {ItemTablePage, AddProductPage} from '../pages';
 import ModalPage from '../pages/modal-page';
 import MainPage from '../pages/main_page';
 import SendItemModalPage from '../pages/send-item-modalPage';
+import WeatherService from '../../api-service/api-service';
 
 export default class App extends Component
 {
     state = {
-        isLogged: true,
+        isLogged: false,
+        currentCity: '',
         weatherToday: {},
         itemData: [],
         forecast: {},
@@ -23,6 +25,14 @@ export default class App extends Component
         isModalSendItemOpen: false,
         editableItem: {},
         sellingItem: {},
+    }
+
+    apiService = new WeatherService();
+
+    onLogged = (value) => {
+        this.apiService.init(value).then((response) => this.setState(({weatherToday: response})))
+        .then(()=>this.setState({isLogged: true, currentCity: value}))
+        .catch(()=>console.log('_ERROR'));
     }
 
     onDeleted = (id) => {
@@ -96,16 +106,14 @@ export default class App extends Component
                 isModalOpen: !isModalOpen,
             }
         })
-
-        
     }
 
     render()
     {
-        if(!this.state.isLogged) return <LoginPage/>
+        if(!this.state.isLogged) return <LoginPage onLogged={this.onLogged}/>
         console.log(this.state.itemData);
         return(
-            <AppContext.Provider value={this.onSellItem}>
+            <AppContext.Provider value={{onSellItem: this.onSellItem, weatherToday: this.state.weatherToday}}>
                 <Router>
                     <div>
                         <NavBar/>
