@@ -24,7 +24,7 @@ export default class NavBar extends Component
                             <Link className="btn btn-sm btn-outline-primary" to="/itemTable/">Товары</Link>
                         </li>
                         <li className="nav-item mr-4">
-                            <Link className="btn btn-sm btn-outline-primary" to="//">Граффик</Link>
+                            <Link className="btn btn-sm btn-outline-primary" to="/chart/">Граффик</Link>
                         </li>
                     </ul>
                 </div>

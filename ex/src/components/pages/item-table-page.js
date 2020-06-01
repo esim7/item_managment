@@ -17,6 +17,10 @@ export default class ItemTablePage extends Component
 
     render()
     {
+        var {data} = this.props;
+        if(!data.length)
+            return <h2 className="mt-5">Товаров не найдено!</h2>
+
         var counter = 0;
         const elements = this.props.data.map((item) => {
             counter ++;
@@ -34,6 +38,7 @@ export default class ItemTablePage extends Component
 
         })
         return(
+            
             <div className="container mt-5">
                 <h2>Каталог реализуемой продукции</h2>
                 <table className="table table-sm table-dark table-hover mt-2">

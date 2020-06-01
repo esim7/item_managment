@@ -7,7 +7,7 @@ import './app.css';
 
 import LoginPage from '../login-page';
 import NavBar from '../navbar';
-import {ItemTablePage, AddProductPage} from '../pages';
+import {ItemTablePage, AddProductPage, ChartPage} from '../pages';
 import ModalPage from '../pages/modal-page';
 import MainPage from '../pages/main_page';
 import SendItemModalPage from '../pages/send-item-modalPage';
@@ -129,6 +129,9 @@ export default class App extends Component
                                                 onDeleted={this.onDeleted}
                                                 onEdited={this.onEdited}                  
                             />
+                            }} />
+                            <Route path="/chart" render={() => {
+                            return <ChartPage itemData={this.state.itemData}/>
                             }} />
                         </Switch>
                     </div>
